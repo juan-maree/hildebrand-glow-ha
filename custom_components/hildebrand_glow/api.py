@@ -122,8 +122,7 @@ class GlowmarktApiClient:
                 "from": today_start_utc.strftime("%Y-%m-%dT%H:%M:%S"),
                 "to": now_utc.strftime("%Y-%m-%dT%H:%M:%S"),
                 "period": "PT30M",
-                "offset": 0,
-                "function": "sum"
+                "offset": -int(now_uk.utcoffset().total_seconds() / 60),                "function": "sum"
             }
             _LOGGER.debug("API params: %s", params)
             
